@@ -72,8 +72,6 @@ namespace allExercises
                     Console.Write("Press Enter to continue doing exercises!");
                     Console.ReadLine();
                     break;
-
-
                 }
             }
 

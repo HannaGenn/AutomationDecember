@@ -4,12 +4,22 @@ using System.Collections.Generic;
 
 namespace AutomationDecember
 {
-    public class TextEditor
+    public class WorkWithText
     {
         public static void PrintText(string newText)
         {
             Console.WriteLine(newText);
         }
+
+        public static string GetSymbolForDelete()
+        {
+            PrintText("Enter symbol to delete from the text:");
+            var symbol = Console.ReadLine();
+            Console.Write("Text without deleted symbol \"{0}\" is:", symbol);
+
+            return symbol;
+        }
+
         public static string DeleteSymbol(string enteredText, string symbol)
         {
             char[] textToDisplayInChar = enteredText.ToCharArray();
@@ -24,15 +34,37 @@ namespace AutomationDecember
                     j++;
                 }
             }
+
             return new string(result);
         }
+
         public static string DeleteByRegularExpressions(string enteredText, string symbol)
         {
-            string spaceElement = "";
+            const string spaceElement = "";
             Regex regexCase = new Regex($"[{symbol}]", RegexOptions.IgnoreCase);
-            string result = regexCase.Replace(enteredText, spaceElement);
+            var result = regexCase.Replace(enteredText, spaceElement);
+
             return result;
         }
+
+        public static string DeleteSymbolDynamic(string enteredText, string symbol)
+        {
+            char[] textToDisplayInChar = enteredText.ToCharArray();
+            List<char> dynamicArrayChar = new List<char>();
+            var charSymbol = char.Parse(symbol);
+            var j = 0;
+            for (int i = 0; i < textToDisplayInChar.Length; i++)
+            {
+                if ((textToDisplayInChar[i] != charSymbol) && (char.ToUpper(textToDisplayInChar[i]) != char.ToUpper(charSymbol)))
+                {
+                    dynamicArrayChar.Insert(j,textToDisplayInChar[i]);
+                    j++;
+                }
+            }
+
+            return new string(dynamicArrayChar.ToArray());
+        }
+
         public static void CharacterToCharacter(string enteredText)
         {
             char[] textLineInChar = enteredText.ToCharArray();
@@ -41,6 +73,7 @@ namespace AutomationDecember
                 Console.WriteLine(textLineInChar[i]);
             }
         }
+
         public static string ReverseCase(string enteredText)
         {
             char[] writeTextInChar = enteredText.ToCharArray();
@@ -55,8 +88,8 @@ namespace AutomationDecember
                 {
                     reversedTextInChar[i] = char.ToLower(writeTextInChar[i]);
                 }
-
             }
+
             return new string(reversedTextInChar);
 
         }

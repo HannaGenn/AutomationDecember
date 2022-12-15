@@ -1,7 +1,6 @@
 ﻿using System;
 using AutomationDecember;
 
-
 namespace allExercises
 {
     internal class Program
@@ -10,36 +9,39 @@ namespace allExercises
         {
             do
             {
-                TextEditor.PrintText("Select exercise to be done with text: \nDelete symbol from the text(1),\nDelete symbol from text in RegularExpressions(2),\nCharacter-by-character text(3),\nReverse case(4)");
-                int variant = int.Parse(Console.ReadLine());
-                TextEditor.PrintText("Enter your text:");
-                string textToWrite = Console.ReadLine();
+                WorkWithText.PrintText("Select exercise to be done with text: \nDelete symbol from text(1),\nDelete symbol from text in RegularExpressions(2)," +
+                "\nDelete symbol using dynamic array(3),\nCharacter-by-character text(4),\nReverse case(5)");
+                var variant = int.Parse(Console.ReadLine());
+                WorkWithText.PrintText("Enter your text:");
+                var textToWrite = Console.ReadLine();
                 if (variant == 1)
                 {
-                    TextEditor.PrintText("Enter symbol to delete from the text:");
-                    string symbol = Console.ReadLine();
-                    Console.Write("Text without deleted symbol \"{0}\" is:", symbol);
-                    var newText = TextEditor.DeleteSymbol(textToWrite, symbol);
-                    TextEditor.PrintText(newText);
+                    var symbol = WorkWithText.GetSymbolForDelete();
+                    var newText = WorkWithText.DeleteSymbol(textToWrite,symbol);
+                    WorkWithText.PrintText(newText);
                 }
                 else if (variant == 2)
                 {
-                    TextEditor.PrintText("Enter symbol to delete from the text using Regular expressions:");
-                    string symbol = Console.ReadLine();
-                    Console.Write("Text without deleted symbol \"{0}\" is:", symbol);
-                    var newText = TextEditor.DeleteByRegularExpressions(textToWrite, symbol);
-                    TextEditor.PrintText(newText);
+                    var symbol = WorkWithText.GetSymbolForDelete();
+                    var newText = WorkWithText.DeleteByRegularExpressions(textToWrite, symbol);
+                    WorkWithText.PrintText(newText);
                 }
                 else if (variant == 3)
                 {
-                    TextEditor.CharacterToCharacter(textToWrite);
+                    var symbol = WorkWithText.GetSymbolForDelete();
+                    var newText = WorkWithText.DeleteSymbolDynamic(textToWrite, symbol);
+                    WorkWithText.PrintText(newText);
                 }
                 else if (variant == 4)
                 {
-                    var newText = TextEditor.ReverseCase(textToWrite);
-                    TextEditor.PrintText(newText);
+                    WorkWithText.CharacterToCharacter(textToWrite);
                 }
-                TextEditor.PrintText("\nPress Enter to continue doing exercises or press the Escape (Esc) to quit!");
+                else if (variant == 5)
+                {
+                    var newText = WorkWithText.ReverseCase(textToWrite);
+                    WorkWithText.PrintText(newText);
+                }
+                WorkWithText.PrintText("\nPress Enter to continue doing exercises or press the Escape (Esc) to quit!");
             }
             while (Console.ReadKey().Key != ConsoleKey.Escape);
         }

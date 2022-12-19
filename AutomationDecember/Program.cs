@@ -9,39 +9,37 @@ namespace allExercises
         {
             do
             {
-                WorkWithText.PrintText("Select exercise to be done with text: \nDelete symbol from text(1),\nDelete symbol from text in RegularExpressions(2)," +
+                Print.PrintText("Select exercise to be done with text: \nDelete symbol from text(1),\nDelete symbol from text in RegularExpressions(2)," +
                 "\nDelete symbol using dynamic array(3),\nCharacter-by-character text(4),\nReverse case(5)");
                 var variant = int.Parse(Console.ReadLine());
-                WorkWithText.PrintText("Enter your text:");
+                Print.PrintText("Enter your text:");
                 var textToWrite = Console.ReadLine();
-                if (variant == 1)
+                switch (variant)
                 {
-                    var symbol = WorkWithText.GetSymbolForDelete();
-                    var newText = WorkWithText.DeleteSymbol(textToWrite,symbol);
-                    WorkWithText.PrintText(newText);
+                    case 1:
+                        var symbolToRemove = StringHelper.GetSymbolForDelete();
+                        var newText = StringHelper.DeleteSymbol(textToWrite,symbolToRemove);
+                        Print.PrintText(newText);
+                        break;
+                    case 2:
+                        var symbolToCut = StringHelper.GetSymbolForDelete();
+                        var newTextLine = StringHelper.DeleteByRegularExpressions(textToWrite,symbolToCut);
+                        Print.PrintText(newTextLine);
+                        break;
+                    case 3:
+                        var symbolToDelete = StringHelper.GetSymbolForDelete();
+                        var newTextInLine = StringHelper.DeleteSymbolDynamic(textToWrite, symbolToDelete);
+                        Print.PrintText(newTextInLine);
+                        break;
+                    case 4:
+                        Print.PrintTextInColumn(textToWrite);
+                        break;
+                    case 5:
+                        var newTextToPrint = StringHelper.ReverseCase(textToWrite);
+                        Print.PrintText(newTextToPrint);
+                        break;
                 }
-                else if (variant == 2)
-                {
-                    var symbol = WorkWithText.GetSymbolForDelete();
-                    var newText = WorkWithText.DeleteByRegularExpressions(textToWrite, symbol);
-                    WorkWithText.PrintText(newText);
-                }
-                else if (variant == 3)
-                {
-                    var symbol = WorkWithText.GetSymbolForDelete();
-                    var newText = WorkWithText.DeleteSymbolDynamic(textToWrite, symbol);
-                    WorkWithText.PrintText(newText);
-                }
-                else if (variant == 4)
-                {
-                    WorkWithText.CharacterToCharacter(textToWrite);
-                }
-                else if (variant == 5)
-                {
-                    var newText = WorkWithText.ReverseCase(textToWrite);
-                    WorkWithText.PrintText(newText);
-                }
-                WorkWithText.PrintText("\nPress Enter to continue doing exercises or press the Escape (Esc) to quit!");
+                Print.PrintText("\nPress Enter to continue doing exercises or press the Escape (Esc) to quit!");
             }
             while (Console.ReadKey().Key != ConsoleKey.Escape);
         }

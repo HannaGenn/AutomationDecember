@@ -9,7 +9,7 @@ namespace AutomationDecember
     {
         public static string GetSymbolForDelete()
         {
-            Print.PrintText("Enter symbol to delete from the text:");
+            Print.Text("Enter symbol to delete from the text:");
             var symbol = Console.ReadLine();
             Console.Write("Text without deleted symbol \"{0}\" is:", symbol);
 

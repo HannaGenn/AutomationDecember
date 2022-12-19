@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutomationDecember
 {
-    internal class Print
+    public class Print
     {
-        public static void PrintText(string newText)
+        public static void Text(string newText)
         {
             Console.WriteLine(newText);
         }
 
-        public static void PrintTextInColumn(string enteredText)
+        public static void TextToColumn(string enteredText)
         {
             var textLineInChar = enteredText.ToCharArray();
             for (var i = 0; i < textLineInChar.Length; i++)

@@ -8,7 +8,7 @@ namespace AutomationDecember
         {
             do
             {
-                Print.Text("Select exercise to be done with text: \nDelete symbol from text(1),\nDelete symbol from text in RegularExpressions(2)," +
+                Print.Text("Select exercise to be done with the text: \nDelete symbol from text(1),\nDelete symbol from text in RegularExpressions(2)," +
                 "\nDelete symbol using dynamic array(3),\nCharacter-by-character text(4),\nReverse case(5)");
                 var variant = int.Parse(Console.ReadLine());
                 Print.Text("Enter your text:");

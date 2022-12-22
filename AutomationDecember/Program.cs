@@ -8,10 +8,10 @@ namespace AutomationDecember
         {
             do
             {
-                Print.Text("Select exercise to be done with the text: \nDelete symbol from text(1),\nDelete symbol from text in RegularExpressions(2)," +
-                "\nDelete symbol using dynamic array(3),\nCharacter-by-character text(4),\nReverse case(5)");
+                Print.Text("Select exercise to be done: \nDelete symbol from text(1),\nDelete symbol from text in RegularExpressions(2)," +
+                "\nDelete symbol from text using dynamic array(3),\nCharacter-by-character text(4),\nReverse case text(5), \nGet highest and lowest number from array(6)");
                 var variant = int.Parse(Console.ReadLine());
-                Print.Text("Enter your text:");
+                Print.Text("Enter your text(tasks from 1 - 5)/numbers(task 6):");
                 var textToWrite = Console.ReadLine();
                 switch (variant)
                 {
@@ -36,6 +36,10 @@ namespace AutomationDecember
                     case 5:
                         var newTextToPrint = StringHelper.ReverseCase(textToWrite);
                         Print.Text(newTextToPrint);
+                        break;
+                    case 6:
+                        var numberResults = ReturnNumbers.GetNumberResults(textToWrite);
+                        ReturnNumbers.PrintNumberResults(numberResults);
                         break;
                 }
                 Print.Text("\nPress Enter to continue doing exercises or press the Escape (Esc) to quit!");

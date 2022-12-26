@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AutomationDecember
+namespace NetFundamentals
 {
     public class ReturnNumbers
     {

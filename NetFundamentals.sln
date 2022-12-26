@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomationDecember", "AutomationDecember\AutomationDecember.csproj", "{B2B5C240-0035-4CEE-B48D-F890AC04DB39}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetFundamentals", "NetFundamentals\NetFundamentals.csproj", "{B2B5C240-0035-4CEE-B48D-F890AC04DB39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

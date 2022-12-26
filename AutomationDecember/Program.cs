@@ -39,7 +39,7 @@ namespace AutomationDecember
                         break;
                     case 6:
                         var numberResults = ReturnNumbers.GetNumberResults(textToWrite);
-                        ReturnNumbers.PrintNumberResults(numberResults);
+                        Print.Text(numberResults, "Highest and lowest numbers in array are:");
                         break;
                 }
                 Print.Text("\nPress Enter to continue doing exercises or press the Escape (Esc) to quit!");

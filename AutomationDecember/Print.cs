@@ -4,9 +4,9 @@ namespace AutomationDecember
 {
     public class Print
     {
-        public static void Text(string newText)
+        public static void Text(string result, string message = null)
         {
-            Console.WriteLine(newText);
+            Console.WriteLine(message + result);
         }
 
         public static void TextToColumn(string enteredText)

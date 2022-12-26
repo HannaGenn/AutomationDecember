@@ -4,12 +4,6 @@ namespace AutomationDecember
 {
     public class ReturnNumbers
     {
-        public static void PrintNumberResults(string result)
-        {
-            Console.WriteLine($"Highest and lowest numbers in array are:\"{result}\"");
-            Console.ReadLine();
-        }
-
         public static string GetNumberResults(string enteredNumbers)
         {
             var numbers = enteredNumbers.Split(new[] { " " },StringSplitOptions.RemoveEmptyEntries);

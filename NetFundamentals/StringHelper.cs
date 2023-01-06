@@ -77,6 +77,8 @@ namespace NetFundamentals
 
         }
 
+        //one more method for reverse case
+
         /*        public static string ReverseCase(string enteredText)
                 {
                     char[] writeTextInChar = enteredText.ToCharArray();
